@@ -6,6 +6,8 @@ import { PageComponent } from './pages/page/page.component';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
 import { JsonHandlerService } from './services/json-handler.service';
 import { ContentRoutingModule } from './content-routing.module';
+import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const exports = [
   PageComponent,
@@ -16,7 +18,13 @@ const exports = [
 
 @NgModule({
   declarations: [...exports],
-  imports: [CommonModule, ContentRoutingModule],
+  imports: [
+    CommonModule,
+    ContentRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   exports: [...exports],
   providers: [JsonHandlerService],
 })

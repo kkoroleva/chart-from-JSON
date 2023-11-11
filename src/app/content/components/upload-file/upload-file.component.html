@@ -1,1 +1,13 @@
-<p>upload-file works!</p>
+<mat-form-field style="width: 100%;">
+    <mat-label>File matInput</mat-label>
+    <button mat-icon-button matPrefix (click)="f_input.click()">
+        <mat-icon>attach_file</mat-icon>
+    </button>
+    <input type="text" readonly matInput [formControl]="formControl" />
+    <input type="file" hidden #f_input (change)="handleFileInputChange(f_input.files)" />
+    <mat-error *ngIf="formControl.errors && formControl.errors['invalidExtension']">invalid extension</mat-error>
+</mat-form-field>
+
+<button matPrefix (click)="uploadFile(f_input.files)" [disabled]="formControl.invalid">
+    Upload File 
+</button>
